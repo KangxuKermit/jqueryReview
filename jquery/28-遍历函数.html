@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul class="list">
+			<li>11</li>
+			<li>22</li>
+			<li>33</li>
+			<li>44</li>
+		</ul>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	// for(){}
+	// jq对象.each(function(){})   主要针对DOM元素操作
+	// $.each(jq对象,function(){}) 针对数组和集合相关数据的操作
+	// index	下标 索引值
+	// element 数组中的每一个元素	是一个js对象
+	// this在each里面的效果等同于element
+	
+	var arr = [1,22,33,44];
+	var aLi = $(".list>li");
+	var aLis = document.getElementsByTagName("li");
+	// 对象方法 - 主要针对DOM元素操作
+	$(arr).each(function(index,element){
+		console.log(index);
+		//console.log(element);
+	})
+	// 全局方法 - 针对数组和集合相关数据的操作
+	$.each(aLis,function(index,element){
+		//console.log(this);
+		//console.log(element);
+		//$(element).css("color","red");
+	})
+</script>

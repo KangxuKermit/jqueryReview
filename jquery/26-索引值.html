@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.list>li {
+				list-style: none;
+				width: 200px;
+				height: 100px;
+				border: 2px solid #000;
+				background: #ccc;
+			}
+		</style>
+	</head>
+
+	<body>
+		<ul class="list">
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+			<li>7</li>
+			<li>8</li>
+			<li>9</li>
+			<li>10</li>
+		</ul>
+		<ul class="list">
+			<li>1</li>
+		</ul>
+		<span></span>
+	</body>
+
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	// index();	索引值
+	// 返回的是当前元素在html结构中相对于他父亲的位置
+	// 从0开始
+	// 如果页面中匹配不到该元素，就会返回-1
+	// 出现-1代表出错
+	$("li").click(function() {
+		var i = $("span").index();
+		console.log(i); // 2
+	})
+</script>

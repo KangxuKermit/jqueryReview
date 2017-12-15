@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	        *{
+	            margin: 0;
+	            padding: 0;
+	            border: 0;
+	            list-style: none;
+	        }
+	        .box{
+	            width: 600px;
+	            border: 1px solid #ccc;
+	            margin: 100px auto 0;
+	            padding: 10px;
+	        }
+	        textarea{
+	            width: 598px;
+	            height: 140px;
+	            border: 1px solid #ccc;
+	            outline: none;
+	            resize: none;
+	        }
+	        #btn{
+	            width: 80px;
+	            height: 30px;
+	            margin: 5px 0;
+	            background-color: #FFA500;
+	            color: #fff;
+	            text-align: center;
+	            line-height: 30px;
+	            font-size: 12px;
+	            cursor: pointer;
+	        }
+	        .list li{
+	            line-height: 35px;
+	            border-bottom: 1px dashed #ccc;
+	            /*强制换行：英文和数字默认不会自动换行*/
+	            word-break: break-all; 
+	            word-wrap: break-word;
+	        }
+	    </style>
+	</head>
+	<body>
+		<div class="box">
+	        <textarea id="myText"></textarea>
+	        <div id="btn">发布</div>
+	        <ul class="list">
+	        	<!--<li>312312</li>-->
+	            <li>纯，属虚构；乱，是佳人。</li>
+	            <li>所谓的心灵的鸡汤，就是有能力的人把鸡吃了，汤留给了你。</li>
+	            <li>人家有的是背景，而我有的只是背影。</li>
+	        </ul>
+	    </div>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	//textarea获取焦点的时候，边框变色
+	//textarea失去焦点的时候，边框还原
+	//focus
+	//blur
+	var myText = $("#myText");
+	//$("#myText").click()
+	myText.focus(function(){
+		$(this).css("border-color","#FFA500");
+	}).blur(function(){
+		$(this).css("border-color","#ccc");
+	})
+	
+	//单击btn的时候，获取textarea里面的值，然后以标签的形式追加到文档中
+	var btn = $("#btn");
+	var list = $(".list");
+	btn.click(function(){
+		//1.获取textarea里面的值
+		var content = myText.val();
+		//为了防止用户没有输入内容
+		if (content == "") {
+			alert("请输入内容！");
+		} else{
+			//2.包装一下这个i
+			var newLi = "<li>" + content +"</li>";
+			
+			//3.把包装完成之后的newLi添加到ul内部的最前面
+			//prepend()
+			list.prepend(newLi);
+			
+			//4.以滑动动画的形式展示出来
+			//针对原本显示中的元素加显示动画是不会有效果
+			$(".list>li:first").stop().hide();
+			$(".list>li:first").stop().slideDown();
+			
+			//5.清空textarea里面的内容
+			myText.val("");
+		}
+	})
+	
+</script>

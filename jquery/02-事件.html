@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="Click" id="btn" />
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	// 事件
+	// 事件源 事件类型 执行指令
+	
+	// js
+	// 事件源.事件类型=执行指令
+	// js中的事件类型必须加on
+	var btn = document.getElementById("btn");
+	btn.onclick = function(){
+		alert(111);
+	}
+	
+	// jq
+	// 事件源.事件类型(执行指令)
+	// jq中的事件类型不需要加on
+	
+	// var btn = $("#btn")
+	$("#btn").click(function() {
+		alert("jq_btnClick")
+	});
+	
+	
+	
+</script>

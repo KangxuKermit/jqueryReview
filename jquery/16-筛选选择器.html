@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+				list-style: none;
+			}
+			div{
+				width: 200px;
+				height: 200px;
+				border: 2px solid #000;
+			}
+			.box1 div{
+				margin: 100px 0 0 100px;
+			}
+			li{
+				width: 50px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border-radius: 50%;
+				border: 1px solid #000;
+				float: left;
+				margin: 300px 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="b1" value="选择box3的亲生父亲变色" />
+		<input type="button" id="b2" value="选择box3的所有父亲变色" />
+		<input type="button" id="b3" value="选择lis的所有兄弟变色" />
+		<input type="button" id="b4" value="选择box1的亲生儿子变色" />
+		<input type="button" id="b5" value="选择box1里面的box3变色" />
+		<div class="box1">爷爷
+			<div class="box2">父亲
+				<div class="box3">孙子</div>
+			</div>
+		</div>
+		<ul>
+			<li>1</li>
+			<li class="lis">2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+		</ul>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	
+	/* 筛选选择器 ： 所有筛选选择器写在选择函数外
+	 	jq对象.parent()			当前元素的亲生父级元素
+		jq对象.parents()			当前元素的所有父级元素
+		jq对象.siblings()		最牛的筛选选择器，可以选出除了自己以外的所有同级元素
+		jq对象.children()		当前元素的第一层子元素
+		jq对象.find()			当前元素的指定子级元素
+	 */
+	var aInput = $("input");
+	//选择box3的亲生父亲变色
+	aInput.eq(0).click(function(){
+		$(".box3").parent().css("backgroundColor","red");
+	})
+	
+	//选择box3的所有父亲变色
+	aInput.eq(1).click(function(){
+		$(".box3").parents().css("backgroundColor","red");
+	})
+	
+	//选择lis的所有兄弟变色
+	aInput.eq(2).click(function(){
+		$(".lis").siblings().css("backgroundColor","red");
+	})
+	
+	//选择box1的亲生儿子变色
+	aInput.eq(3).click(function(){
+		$(".box1").children().css("backgroundColor","red");
+	})
+	
+	//选择box1里面的box3变色
+	aInput.eq(4).click(function(){
+		$(".box1").find(".box3").css("backgroundColor","red");
+	})
+	
+</script>
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+	
+	// 入口函数
+	
+	// js
+	// 只能书写一个，如果书写多个的话，只会生效最后一个里面的代码块
+	// 必须等待除了该function以外的其他所有代码都加载完成才会执行
+	window.onload = function() {
+		alert("1");
+	}
+	window.onload = function() {
+		alert("2");
+	}
+	
+	// jq
+	// $()	jq选择器环境
+	// jq执行的速率更快
+	// 等待页面中的标签渲染完成就开始加载了
+	$(document).ready(function() {
+		alert("3");
+	})
+	$(document).ready(function() {
+		alert("4");
+	})
+
+</script>

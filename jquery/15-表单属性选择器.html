@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" id="b1" value="获取可用的<input type='text'/>标签的长度" />
+		<input type="button" id="b2" value="获取不可用的<input type='text'/>标签的长度" />
+		<input type="button" id="b3" value="获取选中的input标签的长度" />
+		<input type="button" id="b4" value="获取选中的option标签的长度" />
+		<br />
+		<br />
+		<input type="text" value="不可用" disabled="disabled"/>
+		<input type="text" value="可用"/>
+		<input type="text" value="不可用" disabled="disabled"/>
+		<input type="text" value="不可用" disabled="disabled"/>
+		<input type="text" value="可用"/>
+		<br />
+		<br />
+		<input type="radio" name="sex" checked="checked"/>男
+		<input type="radio" name="sex"/>女
+		<input type="radio" name="sex"/>嘿嘿嘿
+		<br />
+		<br />
+		<input type="checkbox"/>篮球
+		<input type="checkbox" checked="checked"/>足球
+		<input type="checkbox" checked="checked"/>羽毛球
+		<br />
+		<br />
+		<select name="" id="">
+			<option value="">上海市</option>
+			<option value="" selected="selected">北京市</option>
+			<option value="">广州市</option>
+		</select>
+		<select name="" id="">
+			<option value="">深圳市</option>
+			<option value="" selected="selected">杭州市</option>
+			<option value="">郑州市</option>
+		</select>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	
+	/* 表单属性选择器
+
+	 	$(':enabled')		选择可用的input标签
+		$(':disabled')		选择不可用的input标签		
+		$(':checked')		选择选中的radio或者checkbox
+		$(':selected')		选择选中的<select>
+
+	 */
+	
+	
+	var aInput = $("input");
+	//获取可用的<input type='text'/>标签的长度
+	aInput.eq(0).click(function(){
+		console.log($("input[type=text]:enabled").length);
+	})
+	
+	//获取不可用的<input type='text'/>标签的长度
+	aInput.eq(1).click(function(){
+		console.log($("input[type=text]:disabled").length);
+	})
+	
+	//获取选中的input标签的长度
+	aInput.eq(2).click(function(){
+		console.log($("input:checked").length);
+	})
+	
+	//获取选中的option标签的长度
+	aInput.eq(3).click(function(){
+		console.log($("option:checked").length);
+	})
+	
+</script>

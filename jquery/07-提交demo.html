@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#tip{
+				color:red;
+				border: 1px solid #000;
+				width: 400px;
+	
+			}
+			/*首先标签名必须是input，其次必须拥有一个class叫做submit*/
+			input.submit{
+				background: #69b946;
+				/*
+				 * inline-block 行内块
+				 * 特点：
+				 * 1.一行可以存在多个
+				 * 2.可以设置大小
+				 * 代表：img input...
+				*/
+			    display: inline-block;
+			    height: 52px;
+			    width: 306px;
+			    text-align: center;
+			    /*设置了鼠标的指针*/
+			    cursor: pointer;
+			    /*
+			     * font: 22px/52px "微软雅黑";
+			     * 字体大小 22px
+			     * 行高	 52px
+			     * 字体	 微软雅黑
+			    */
+			    font: 22px/52px "微软雅黑";
+			    color: #fff;
+			    /*圆角属性*/
+			    border-radius: 3px;
+			    border-style: solid;
+			    border-width: 1px;
+			    /*transparent 透明*/
+			    border-color: transparent;
+			}
+			input.disabled {
+			    background: #f4f9fd;
+			    color: #888;
+			    border-color: #d0dae3;
+			    cursor: default;
+			    outline: none;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="http://www.baidu.com">
+			<input id="kuang" type="checkbox" /> 
+			<label for="kuang">同意"服务条款"和"用户须知"、"隐私权相关政策"</label>
+			<br />
+			<br />
+			<input type="submit" disabled class="submit disabled" id="btn"/>
+		</form>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	
+	var jqCheckBox = $("#kuang");
+	var jqBtn = $("#btn");
+	jqCheckBox.click(function() {
+		if (jqCheckBox.prop("checked")) {
+			jqBtn.attr({
+				"class":"submit",
+				"disabled":false
+			});
+		} else {
+			jqBtn.attr({
+				"class":"submit disabled",
+				"disabled":true
+			});
+		}
+	})
+	
+	
+</script>
+
+
+
+

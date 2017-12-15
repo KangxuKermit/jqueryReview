@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮1" />
+		<input type="button" value="按钮2" />
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script type="text/javascript">
+	
+	// js
+	// 不允许对数组进行整体的操控
+//	var inputs = document.getElementsByTagName("input");
+//	for (var i = 0; i < inputs.length; i++) {
+//		inputs[i].onclick = function() {
+//			alert("alert");
+//		}
+//	}
+//	inputs[0].onmousemove = function() {
+//		alert("mousermove");
+//	}
+
+	
+	// jq
+	// 允许进行整体的操控
+	var inputss = $("input");
+	inputss.click(function(){
+		alert("jq");
+	})
+//	inputss.eq(1).mouseover(function(){
+//		alert("mouseover")
+//	})
+		
+	
+</script>
+
+
+
+
+

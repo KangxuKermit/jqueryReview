@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+	        *{
+	            margin: 0;
+	            padding: 0;
+	            border: 0;
+	            list-style: none;
+	        }
+	        .list{
+	            width: 400px;
+	            height: 30px;
+	            margin: 100px auto 0;
+	            background-color: #ccc;
+	        }
+	        .list li{
+	            width: 100px;
+	            height: 30px;
+	            float: left;
+	            /*相对定位*/
+	            position: relative;
+	        }
+	        .list li a{
+	            display: block;
+	            width: 100px;
+	            height: 30px;
+	            font-size: 12px;
+	            color: #333;
+	            text-align: center;
+	            text-decoration: none;
+	            line-height: 30px;
+	        }
+	        .list li a:hover{
+	            background-color: pink;
+	            color: #fff;
+	        }
+	        .list ol{
+	        	/*
+	        	 * 绝对定位
+	        	 * 浮动在三重天
+	        	 * 绝对定位在九重天
+	        	 * 子绝父相
+	        	*/
+	            position: absolute;
+	            left: 0;
+	            top: 30px;
+	            width: 100px;
+	            background-color: #ccc;
+	            display: none;
+	        }
+	        /*.box{
+	        	width: 200px;
+	        	height: 200px;
+	        	background: pink;
+	        	bottom: 10px;
+	        	right: 10px;
+	        	position: absolute;
+	        }*/
+	    </style>
+	</head>
+	<body>
+		<ul class="list">
+	        <li>
+	            <a href="javascript:;">平面设计</a>
+	            <ol>
+	                <li><a href="javascript:;">平面设计</a></li>
+	                <li><a href="javascript:;">平面设计</a></li>
+	                <li><a href="javascript:;">平面设计</a></li>
+	                <li><a href="javascript:;">平面设计</a></li>
+	            </ol>
+	        </li>
+	        <li>
+	            <a href="javascript:;">网页设计</a>
+	            <ol>
+	                <li><a href="javascript:;">网页设计</a></li>
+	                <li><a href="javascript:;">网页设计</a></li>
+	                <li><a href="javascript:;">网页设计</a></li>
+	                <li><a href="javascript:;">网页设计</a></li>
+	            </ol>
+	        </li>
+	        <li>
+	            <a href="javascript:;">UI设计</a>
+	            <ol>
+	                <li><a href="javascript:;">UI设计</a></li>
+	                <li><a href="javascript:;">UI设计</a></li>
+	                <li><a href="javascript:;">UI设计</a></li>
+	                <li><a href="javascript:;">UI设计</a></li>
+	            </ol>
+	        </li>
+	        <li>
+	            <a href="javascript:;">网络营销</a>
+	            <ol>
+	                <li><a href="javascript:;">网络营销</a></li>
+	                <li><a href="javascript:;">网络营销</a></li>
+	                <li><a href="javascript:;">网络营销</a></li>
+	                <li><a href="javascript:;">网络营销</a></li>
+	            </ol>
+	        </li>
+	    </ul>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	
+	// 分级导航
+	
+	// mouseover
+	// mouseout
+	$(".list>li").mouseover(function(){
+		$(this).children("ol").stop().slideDown();
+	}).mouseout(function(){
+		$(this).children("ol").stop().slideUp();
+	})
+</script>
+
+
+

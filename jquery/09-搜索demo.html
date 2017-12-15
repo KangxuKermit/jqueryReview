@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			/*
+			 * 通配符选择器	匹配页面中所有的标签	优先级最低
+			 */
+	        * {
+	            margin: 0;
+	            padding: 0;
+	            border: 0;
+	            list-style: none;
+	        }
+	        .box {
+	            height: 40px;
+	            width: 258px;
+	            margin: 100px auto 0;
+	        }
+	        .box input {
+	            float: left;
+	            width: 210px;
+	            padding-left: 6px;
+	            height: 40px;
+	            background: url(img/left.jpg);
+	            color: #ccc;
+	        }
+	        .box button {
+	            float: right;
+	            width: 42px;
+	            height: 40px;
+	            background: url(img/right.jpg);
+	        }
+    	</style>
+	</head>
+	<body>
+		<div class="box">
+	        <input type="text" value="请输入文字..." />
+	        <button></button>
+	    </div>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+	
+	var jqText = $("input");
+	jqText.focus(function() {
+		if (jqText.val() == "请输入文字...") {
+			jqText.val("").css("color","#000");
+		}
+	}).blur(function() {
+		if($(this).val() == ""){
+			$(this).css("color","#ccc").val("请输入文字...");
+		}
+	})
+	
+</script>
+
+

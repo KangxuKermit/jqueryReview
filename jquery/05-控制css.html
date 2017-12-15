@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<div id="box"></div>
+	</body>
+
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+	// ****** 控制 css
+
+	// js
+	var box = document.getElementById("box");
+	box.style.width = "100px";
+	box.style.height = "100px";
+	box.style.background = "pink";
+
+	// jq
+	// jq对象.css();
+	// jq对象.css({
+	//	name:value,
+	//	name:value
+	// });
+	var box = $("#box");
+	box.css({
+		"width": "200px",
+		"height": "200px",
+		"backgroundColor": "blue"
+	});
+</script>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		 	div,span {
+			    width: 180px;
+			    height: 180px;
+			    margin: 20px;
+			    background: #9999CC;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value=" 改变第一个 div 元素的背景色为 红色"  id="b1"/>
+		<input type="button" value=" 改变最后一个 div 元素的背景色为 红色"  id="b2"/>
+		<input type="button" value=" 改变class不为 one 的所有 div 元素的背景色为 红色"  id="b3"/>
+		<input type="button" value=" 改变索引值为偶数的 div 元素的背景色为 红色"  id="b4"/>
+		<input type="button" value=" 改变索引值为奇数的 div 元素的背景色为 红色"  id="b5"/>
+		<input type="button" value=" 改变索引值为大于 3 的 div 元素的背景色为 红色"  id="b6"/>
+		<input type="button" value=" 改变索引值为等于 3 的 div 元素的背景色为 红色"  id="b7"/>
+		<input type="button" value=" 改变索引值为小于 3 的 div 元素的背景色为 红色"  id="b8"/>
+		<input type="button" value=" 改变所有的标题元素的背景色为 红色"  id="b9"/>
+		<input type="button" value=" 改变当前正在执行动画的所有元素的背景色为 红色"  id="b10"/>
+		<h1>有一种奇迹叫坚持</h1>
+		<h2>自信源于努力</h2>
+		<h3>自信源于努力</h3>
+	    <div id="one">id为one</div>
+		<div id="two" class="mini" >
+	    	id为two   class是 mini
+		</div>
+		<div class="one" >
+		 	class是 one
+		</div>
+		<div class="one" >
+		 	class是 one
+		</div>
+		<div id="mover">动画</div>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	/* 基本过滤选择器
+	 
+		$('A:first')			过滤出第一个 
+		$('A:last')			过滤出最后一个
+		$('A:not(选择器)')	排除指定的元素
+		$('A:eq()')			按索引值过滤     
+		$('A:gt()')			过滤大于指定索引值  从0开始
+		$('A:lt()')			过滤小于指定索引值
+		$('A:even')			过滤索引值为偶数  从0开始
+		$('A:odd')			过滤索引值为奇数
+		$(':header')			过滤所有的标题标签	h1-h6
+		$(':animated')		过滤正在执行动画的标签对象
+	 
+	 */
+	
+	//使mover的div运行
+	function move(){
+		$("#mover").slideToggle("slow",function(){
+			//回调函数
+			move();
+		});
+	}
+	//调用move
+	move();
+	
+	var aInput = $("input");
+	
+	//改变第一个 div 元素的背景色
+	aInput.eq(0).click(function(){
+		$("div:first").css("backgroundColor","red");
+	})
+	//改变最后一个 div 元素的背景色
+	aInput.eq(1).click(function(){
+		$("div:last").css("backgroundColor","red");
+	})
+	//改变class不为 one 的所有 div元素的背景色
+	aInput.eq(2).click(function(){
+		$("div:not(.one)").css("backgroundColor","red");
+	})
+	//改变索引值为偶数的 div 元素的背景色
+	aInput.eq(3).click(function(){
+		$("div:even").css("backgroundColor","red");
+	})
+	//改变索引值为奇数的 div 元素的背景色
+	aInput.eq(4).click(function(){
+		$("div:odd").css("backgroundColor","red");
+	})
+	//改变索引值为大于 3 的 div 元素的背景色
+	aInput.eq(5).click(function(){
+		$("div:gt(3)").css("backgroundColor","red");
+	})
+	//改变索引值为等于 3 的 div 元素的背景色
+	aInput.eq(6).click(function(){
+		$("div:eq(3)").css("backgroundColor","red");
+	})
+	//改变索引值为小于 3 的 div 元素的背景色
+	aInput.eq(7).click(function(){
+		$("div:lt(3)").css("backgroundColor","red");
+	})
+	//改变所有的标题元素的背景色
+	aInput.eq(8).click(function(){
+		$(":header").css("backgroundColor","red");
+	})
+	//改变当前正在执行动画的所有元素的背景色
+	aInput.eq(9).click(function(){
+		$(":animated").css("backgroundColor","red");
+	})
+	
+	
+</script>
+
+

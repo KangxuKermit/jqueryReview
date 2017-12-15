@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="btn" />
+		<ol class="list">
+			<li>吃饭</li>
+			<li>睡觉</li>
+		</ol>
+		<div>打豆豆</div>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	// js
+	// document.createElement();
+	// appendChild();
+	// insertBefore();
+
+	/*
+		$(selector).append(content)			在匹配元素内部最后面新增一个节点
+		$(content).appendTo(selector)		把新节点追加到匹配元素内部最后面（效果同append，只是书写上前后位置互换）
+		$(selector).prepend(content)			在匹配元素内部最前面新增一个节点
+		$(content).prependTo(selector)		把新节点追加到匹配元素内部最前面（效果同prepend，只是书写上前后位置互换）
+		$(selector).after(content)			在匹配元素同级之后新增一个节点
+		$(content).insertAfter(selector)		把新节点追加到匹配元素同级之后（效果同insertAfter，只是书写上前后位置互换）
+		$(selector).before(content)			在匹配元素同级之前新增一个节点
+		$(content).insertBefore(selector)	把新节点追加到匹配元素同级之前（效果同insertBefore，只是书写上前后位置互换）
+	 
+	 */
+
+
+	
+	// jq
+	// var i = "<b></b>";
+	// 在内部新增
+		// 内部的末尾处
+		// old.append(new)	
+		// new.appendTo(old)	
+		// 内部的最前面
+		// old.prepend(new)	
+		// new.prependTo(old)	
+	
+	// 同级新增
+		// 同级之后
+		// old.after(new)	
+		// new.insertAfter(old)	
+		// 同级之前
+		// old.before(new)	
+		// new.insertBefore(old)	
+	
+	var newLi = "<li>打豆豆</li>";
+	// clone
+	var newDiv = $("div").clone(); //默认就会克隆内容
+	
+	$("input").click(function(){
+		//$(".list").append(newLi);
+		//$(newLi).appendTo($(".list"));
+		$(".list").append(newDiv);
+		
+		//$(".list").prepend(newLi);
+		//$(newLi).prependTo($(".list"));
+		
+		//$(".list").after(newLi);
+		//$(newLi).insertAfter($(".list"));
+		
+		//$(".list").before(newLi);
+		//$(newLi).insertBefore($(".list"));
+	})
+	
+</script>

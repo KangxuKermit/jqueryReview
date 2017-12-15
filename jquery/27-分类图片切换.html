@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <style type="text/css">
+	        *{
+	            margin: 0;
+	            padding: 0;
+	            border: 0;
+	            list-style: none;
+	        }
+	        .box{
+	            width: 300px;
+	            height: 250px;
+	            margin: 100px auto 0;
+	            border: 1px solid pink;
+	        }
+	        .leftList,
+	        .rightList{
+	            width: 49px;
+	            height: 250px;
+	            float: left;
+	        }
+	        .leftList li,
+	        .rightList li{
+	            height: 27px;
+	            border-bottom: 1px solid pink;
+	        }
+	        .leftList li a,
+	        .rightList li a{
+	            display: block;
+	            width: 100%;
+	            height: 100%;
+	            text-align: center;
+	            line-height: 27px;
+	            text-decoration: none;
+	            color: #333;
+	            font-size: 12px;
+	        }
+	        .leftList li a:hover,
+	        .rightList li a:hover{
+	            background: url(img/abg.gif);
+	            color: #fff;
+	        }
+	        .centerList{
+	            float: left;
+	            width: 200px;
+	            height: 250px;
+	            border-left: 1px solid pink;
+	            border-right: 1px solid pink;
+	        }
+	        .centerList li{
+	            display: none;
+	        }
+	    </style>
+    </head>
+	<body>
+	    <div class="box">
+	        <ul class="leftList">
+	            <li><a href="javascript:;">女靴</a></li>
+	            <li><a href="javascript:;">雪地靴</a></li>
+	            <li><a href="javascript:;">冬裙</a></li>
+	            <li><a href="javascript:;">呢大衣</a></li>
+	            <li><a href="javascript:;">毛衣</a></li>
+	            <li><a href="javascript:;">棉服</a></li>
+	            <li><a href="javascript:;">女裤</a></li>
+	            <li><a href="javascript:;">羽绒服</a></li>
+	            <li><a href="javascript:;">牛仔裤</a></li>
+	        </ul>
+	        <ul class="centerList">
+	            <li>
+	                <a href="javascript:;"><img src="img/女靴.jpg" width="200" height="250"  /></a>
+	            </li>
+	            <li><a href="javascript:;"><img src="img/雪地靴.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/冬裙.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/呢大衣.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/毛衣.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/棉服.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/女裤.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/羽绒服.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/牛仔裤.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/女包.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/男包.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/登山鞋.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/皮带.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/围巾.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/皮衣.jpg" width="200" height="250"  /></a></li>
+	            <li><a href="javascript:;"><img src="img/男毛衣.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/男棉服.jpg" width="200" height="250"/></a></li>
+	            <li><a href="javascript:;"><img src="img/男靴.jpg" width="200" height="250" / ></a></li>
+	        </ul>
+	        <ul class="rightList">
+	            <li><a href="javascript:;">女包</a></li>
+	            <li><a href="javascript:;">男包</a></li>
+	            <li><a href="javascript:;">登山鞋</a></li>
+	            <li><a href="javascript:;">皮带</a></li>
+	            <li><a href="javascript:;">围巾</a></li>
+	            <li><a href="javascript:;">皮衣</a></li>
+	            <li><a href="javascript:;">男毛衣</a></li>
+	            <li><a href="javascript:;">男棉服</a></li>
+	            <li><a href="javascript:;">男靴</a></li>
+	        </ul>
+    	</div>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	// 中间默认显示第一张图片
+	// $(".centerList>li:first").css("display","block");
+	$(".centerList>li:first").show();
+	
+	// 左右两个ul里面的li最下面的边框要去掉
+	$(".leftList>li:last,.rightList>li:last").css("border","none");
+	
+	// mouseover
+	// 鼠标放在不同的文字身上，出现不同的图片
+	$(".leftList>li").mouseover(function() {
+		// 由于图片的位置和文字的位置是一一对应的，所以只要得到文字的索引值
+		// 然后去取对应的图片即可
+		clearInterval(timer);
+		var i = $(this).index();
+		
+		// console.log(i);
+		$(".centerList>li").eq(i).show().siblings().hide();
+		
+		num = i;
+		
+	}).mouseout(function() {
+		timer = setInterval(autoPlay,1000);
+	})
+	
+	$(".rightList>li").mouseover(function() {
+		// 由于图片的位置和文字的位置是一一对应的，所以只要得到文字的索引值
+		// 然后去取对应的图片即可
+		// 0-8
+		// 9
+		clearInterval(timer);
+		var i = $(this).index()+9;
+		
+		// console.log(i);
+		$(".centerList>li").eq(i).show().siblings().hide();
+		
+		num = i;
+		
+	}).mouseout(function(){
+		timer = setInterval(autoPlay,1000);
+	})
+	
+	var num=0;
+	var timer;
+	// 图片按顺序自动播放
+	function autoPlay(){
+		num++;
+		if(num>17){
+			num=0;
+		}
+		$(".centerList>li").eq(num).show().siblings().hide();
+	}
+	timer = setInterval(autoPlay,1000);
+</script>

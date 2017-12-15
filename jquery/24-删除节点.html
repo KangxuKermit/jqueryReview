@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.list{
+				width: 400px;
+				margin: 50px auto;
+			}
+			.list li{
+				list-style: none;
+				height: 50px;
+				line-height: 50px;
+				border-bottom: 1px dashed #ccc;
+			}
+			.list a{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<ul class="list">
+			<li>
+				商品信息1
+				<a href="#">删除</a>
+			</li>
+			<li>
+				商品信息2
+				<a href="#">删除</a>
+			</li>
+			<li>
+				商品信息3
+				<a href="#">删除</a>
+			</li>
+		</ul>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+	
+	// js
+	// remove();
+	// removeChild();
+	
+	// jq
+	// remove(); 删除	斩草除根
+	// empty();	 清空	斩草留根，只清空内部的东西，保留最外面的标签
+	
+	// 单击a，删除整行
+	// 单击a，清空整行
+	// 弹出一个窗口，询问你是否真的要删除
+	// confirm()		true false
+	
+	$("a").click(function() {
+		var result = confirm("确定删除？");
+		if (result) {
+			$(this).parent().remove();
+		}
+	})
+	
+	
+	
+</script>
+

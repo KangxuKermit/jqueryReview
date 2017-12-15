@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+				<style type="text/css">
+		 	div,span{
+			    width: 180px;
+			    height: 180px;
+			    margin: 20px;
+			    background: #9999CC;
+			    border: #000 1px solid;
+				float:left;
+			    font-size: 17px;
+			    font-family:Roman;
+			}	
+			div .mini{
+			    width: 50px;
+			    height: 50px;
+			    background: #CC66FF;
+			    border: #000 1px solid;
+			    font-size: 12px;
+			    font-family:Roman;
+			}	
+			div .mini01{
+			    width: 50px;
+			    height: 50px;
+			    background: #CC66FF;
+			    border: #000 1px solid;
+			    font-size: 12px;
+			    font-family:Roman;
+			}	
+		 </style>  
+	</head>
+	<body>
+		<input type="button" value="改变 <body> 内所有 <div> 的背景色为红色"  id="b1"/>
+		<input type="button" value="改变 <body> 内第一个子 <div> 的背景色为红色"  id="b2"/>
+		<input type="button" value="改变 id 为 one 的下一个 <div> 的背景色为红色"  id="b3"/>
+		<input type="button" value="改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色为 红色"  id="b4"/>
+		<h1>有一种奇迹叫坚持</h1>
+		<h2>自信源于努力</h2>
+		<div id="one">id为one</div>
+		<div id="two" class="mini" >
+	    	id为two，class是 mini 
+		    <div class="mini" >class是 mini</div>
+		</div>
+		<div class="one" >
+		 	class是 one 
+		    <div class="mini" >class是 mini</div>
+			<div class="mini" >class是 mini</div>
+		</div>
+		<div class="one">
+		 	class是 one 
+		    <div class="mini01" >class是 mini01</div>
+			<div class="mini" >class是 mini</div>
+		</div>
+		<span class="spanone">span</span>
+	</body>
+</html>
+
+<script src="js/jquery-1.12.4.min.js"></script>
+
+<script>
+	
+	/** 层级选择器
+	  
+	 	$('A  B')	获得A元素内部的所有子元素B		
+		$('A > B')	获得A元素内部的第一层所有子元素B
+		$('A + B')	获得A元素同级下一个B元素		
+		$('A ~ B')	获得A元素后面的所有同级B元素	
+ 
+	 */
+	var jqBtns = $("input");
+	//改变 <body> 内所有 <div> 的背景色
+	jqBtns.eq(0).click(function() {
+		$("body div").css("backgroundColor","red");
+	})
+	//改变 <body> 内第一个子 <div> 的背景色
+	jqBtns.eq(1).click(function() {
+		$("body > div").css("backgroundColor","red");
+	})
+	//改变 id 为 one 的下一个 <div> 的背景色
+	jqBtns.eq(2).click(function() {
+		$("#one + div").css("backgroundColor","red")
+	})
+	//改变 id 为 two 的元素后面的所有兄弟<div>的元素的背景色
+	jqBtns.eq(3).click(function() {
+		$("#two ~ div").css("backgroundColor","red")
+	})
+	
+</script>

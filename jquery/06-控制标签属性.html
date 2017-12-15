@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" class="test" title="bbb">我是一个香菇</div>
+		<input type="checkbox" id="ck" checked="checked" />
+		<input type="button" value="Click" id="btn" />
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+
+<script type="text/javascript">
+	
+	// *********** 控制标签属性
+	
+	// js
+	// js对象.属性名
+	
+	// js对象.getAttribute
+	// js对象.setAttribute
+	// js对象.removeAttribute
+//	var box = document.getElementById("box");
+//	box.title = "ccc";
+//	console.log(box.title);
+//	console.log(box.getAttribute("title"));
+	
+	
+	// jq
+	// jq对象.attr();
+	// jq对象.removeAttr();
+	// jq对象.attr({});
+	
+	// 遇到用户操作改变的值的时候
+	// jq对象.prop();
+	// jq对象.prop({});
+	var jqBox = $(".test");
+	jqBox.attr("title","dddd");
+	console.log(jqBox.attr("title"));
+	jqBox.attr({
+		"title" : "abc",
+		"id" : "newBox"
+	})
+	console.log(jqBox.attr("title"));
+	console.log(jqBox.attr("id"));
+	
+	var jqBtn = $("#btn");
+	var jqCK = $("#ck");
+	jqBtn.click(function() {
+		jqCK.click();
+		console.log(jqCK.prop("checked"));
+	})
+	
+	
+	
+	
+	
+</script>
+

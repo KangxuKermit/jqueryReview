@@ -5,5 +5,74 @@
 		<title></title>
 	</head>
 	<body>
+		<input type="button" value="Click"/>
+		<input type="button" value="Click"/>
 	</body>
 </html>
+
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	// ********** bind() unbind() ***************** //
+	
+	// jq对象.bind("事件类型"，响应函数);
+//	$("input").bind("click", function(){
+//	  	alert("bind - click");
+//	});
+
+	// jq对象.bind({"事件类型1":function(){},"事件类型2":function(){}});
+//	$("input").bind({
+//		"click":function() {
+//			alert("bind - click");
+//		},
+//		"mouseout":function() {
+//			alert("bind - mouseout");
+//		}
+//	});
+
+//	// 解绑
+//	$("input").unbind("click");
+//	// 解绑所有事件：
+//	$("input").unbind();
+//	// 解绑指定事件：
+//	$("input").unbind("click");
+
+	
+	// ********** on() off() ***************** //
+	// 绑定	on("click",function(){})
+	var aInput = $("input");
+	aInput.on("click",function(){
+		alert("on - click");
+	})
+	
+//	aInput.on({
+//		"click":function(){
+//			alert("on - click");
+//		},
+//		"mouseout":function(){
+//			alert("on - mouseout");
+//		}
+//	})
+	 
+	// 解绑 - off() 		如果括号里面不加参数，解绑所有事件
+//	aInput.eq(1).off("click");
+	
+	//事件切换 hover(function(){},function(){}) 前面代表移入，后面代表移出
+	//hover(function(){})
+	//如果只写一个function，移入移出都会执行一次里面的语句
+	//mouseover+mouseout
+//	aInput.eq(1).hover(function(){
+//		//移入
+//		console.log("移入");
+//	},function(){
+//		//移出
+//		console.log("移出");
+//	})
+//	aInput.eq(1).hover(function(){
+//		//移入
+//		console.log("移入");
+//	})
+
+</script>
+
+

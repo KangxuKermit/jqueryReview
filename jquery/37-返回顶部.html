@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				height: 3000px;
+			}
+			div{
+				width: 50px;
+				height: 50px;
+				background: #ccc;
+				position: fixed;
+				right: 10px;
+				bottom: 50px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>顶部</h1>
+		<div></div>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	$("div").click(function(){
+		$("html,body").stop().animate({
+			"scrollTop":0
+		},500)
+	})
+</script>

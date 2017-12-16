@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="province">
+			<option value="none">--请选择省--</option>
+			<!--<option value="p_id">p_name</option>-->
+		</select>
+		<select id="city">
+			<option value="none">--请选择市--</option>
+			<!--<option value="c_id">c_name</option>-->
+			
+		</select>
+	</body>
+</html>
+<script src="js/cities.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	// 省份
+	var province = document.getElementById("province");
+	for (var i = 0; i< china.length; i++) {
+		var p_option = "<option value = '" + china[i].p_id + "'>" + china[i].p_name + "</option>";
+		province.innerHTML += p_option;
+	}
+
+	// 市
+	var city = document.getElementById("city");
+	province.onchange = function() {
+		city.options.length = 1;
+		for (var i = 0; i< china.length; i++) {
+			if (china[i].p_id == this.value) {
+				var citys = china[i].cities;
+				for (var j = 0; j < citys.length; j++) {
+					var c_option = "<option value = '" + citys[j].c_id + "'>" + citys[j].c_name + "</option>";
+					city.innerHTML += c_option;
+				}
+			}
+			
+		}
+		
+	}
+
+
+
+
+</script>
+
+

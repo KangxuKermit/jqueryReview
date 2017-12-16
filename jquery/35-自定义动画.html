@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			.box{
+				width: 200px;
+				height: 200px;
+				background: pink;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<input type="button" value="Click" />
+		<div class="box"></div>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	// 把原本生硬 的状态通过时间渲染出来
+	// 只能渲染数值型的css样式
+	// jq对象.animate({属性:值},时间,回调函数)
+	// 这是个固定格式，哪怕改变的只有一个属性，也必须这么写
+	// 回调函数	可选参数
+	$("input").click(function(){
+		//$(".box").css("width","400px");
+		$(".box").animate({
+			"width":"400px",
+			"height":"400px",
+			"margin-left":"200px"
+		},2000,function(){
+			alert();
+		})
+	})
+</script>

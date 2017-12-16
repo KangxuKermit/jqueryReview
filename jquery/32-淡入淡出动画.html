@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="显示" />
+		<input type="button" value="隐藏" />
+		<input type="button" value="切换" />
+		<div class="box">
+			<img src="img/01.gif"/>
+		</div>
+		<div style="height: 50px;background: pink;"></div>
+		
+
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js"></script>
+<script>
+	// 通过改变透明度来达到最终盒子显示和隐藏的效果
+	// fadeIn()
+	// fadeOut()
+	// fadeToggle()
+	// opacity 不透明度  0-1
+	var aInput = $("input");
+	
+	aInput.eq(0).click(function(){
+		$(".box").stop().fadeIn();
+	})
+	aInput.eq(1).click(function(){
+		$(".box").stop().fadeOut();
+	})
+	aInput.eq(2).click(function(){
+		$(".box").stop().fadeToggle();
+	})
+</script>

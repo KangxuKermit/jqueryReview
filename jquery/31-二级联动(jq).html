@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select id="province">
+			<option value="none">--请选择省--</option>
+			<!--<option value="p_id">p_name</option>-->
+		</select>
+		<select id="city">
+			<option value="none">--请选择市--</option>
+			<!--<option value="c_id">c_name</option>-->
+			
+		</select>
+	</body>
+</html>
+<script src="js/jquery-1.12.4.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/cities.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	
+	// 省份
+	var province = $("#province");
+	$.each(china, function() {
+		var p_option = "<option value = '" + this.p_id + "'>" + this.p_name + "</option>";
+		province.append(p_option);
+	});
+	
+	// 市
+	var city = $("#city");
+	province.change(function() {
+		city[0].options.length = 1;
+		// 获取点击省的 value
+		var value = $(this).val();
+		
+		$.each(china, function() {
+			// 对 china进行遍历，取到点击的省数据
+			if (this.p_id == value) {
+				// 遍历省的数据，并拼接到HTML上
+				$.each(this.cities, function() {
+					var c_option = "<option value = '" + this.c_id + "'>" + this.c_name + "</option>";
+					city.append(c_option);
+				});
+			}
+		});
+
+	});
+
+
+
+
+</script>
+
+
